@@ -15,7 +15,6 @@ class Obsticales:
     def BorderCheck(self):
         if self.rectObj[0] < -20:
             self.rectObj[0] = (1000 + (random.randint(1, 50) * 10))
-            print(str(self.rectObj[0]))
     def update(self):
         self.move()
         self.BorderCheck()

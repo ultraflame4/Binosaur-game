@@ -1,6 +1,8 @@
 import GameEngine.Obsticales.groundObj as groundObj
+import pygame
 class groundObstacles:
-    def __init__(self, surface, color):
+    def __init__(self, surface, color, player):
+        self.playerRect = player.Player.rectObj
         self.surface = surface
         self.color = color
         self.createObj()
@@ -10,7 +12,15 @@ class groundObstacles:
         self.groundObstacle2 = groundObj.Obsticales(self.surface, self.color, 1300)
         self.groundObstacle3 = groundObj.Obsticales(self.surface, self.color, 1500)
 
+    def GROUP_PlayerCollisionCheck(self):
+        self.PlayerCollisionCheck(self.groundObstacle0)
+
+    def PlayerCollisionCheck(self, groundObstacleObj):
+        if groundObstacleObj.rectObj.colliderect(self.playerRect):
+            print("cool")
+
     def draw(self):
+        self.GROUP_PlayerCollisionCheck()
         self.groundObstacle0.update()
         self.groundObstacle1.update()
         self.groundObstacle2.update()
