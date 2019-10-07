@@ -10,9 +10,9 @@ class mainGui:
     def createObj(self):
         self.ground = classes.ground(self.surface, self.theme)
         self.Player = CharactorClass.player(self.surface, self.theme, self.ground)
-        self.skyObstical = ObsticalClasses.ground.Obsticales(self.surface, self.theme)
+        self.GroundObsticals = ObsticalClasses.ground.groundObstacles(self.surface, self.theme)
     def update(self):
         self.surface.fill((255,255,255))
         self.ground.draw()
         self.Player.update()
-        self.skyObstical.update()
+        self.GroundObsticals.draw()
