@@ -11,16 +11,13 @@ class groundObstacles:
         self.groundObstacle1 = groundObj.Obsticales(self.surface, self.color, 1050)
         self.groundObstacle2 = groundObj.Obsticales(self.surface, self.color, 1300)
         self.groundObstacle3 = groundObj.Obsticales(self.surface, self.color, 1300)
-        self.groundObstacle4 = groundObj.Obsticales(self.surface, self.color, 1300)
-        self.groundObstacle5 = groundObj.Obsticales(self.surface, self.color, 1300)
 
     def GROUP_PlayerCollisionCheck(self):
         self.PlayerCollisionCheck(self.groundObstacle0)
         self.PlayerCollisionCheck(self.groundObstacle1)
         self.PlayerCollisionCheck(self.groundObstacle2)
         self.PlayerCollisionCheck(self.groundObstacle3)
-        self.PlayerCollisionCheck(self.groundObstacle4)
-        self.PlayerCollisionCheck(self.groundObstacle5)
+
 
     def PlayerCollisionCheck(self, groundObstacleObj):
         if groundObstacleObj.rectObj.colliderect(self.playerRect):
@@ -32,5 +29,3 @@ class groundObstacles:
         self.groundObstacle1.update()
         self.groundObstacle2.update()
         self.groundObstacle3.update()
-        self.groundObstacle4.update()
-        self.groundObstacle5.update()
