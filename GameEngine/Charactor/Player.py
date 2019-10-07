@@ -10,13 +10,13 @@ class player:
         self.jumped = False
         self.jumpOrnot = False
     def jump(self):
-        if self.jumpVar < 11 and not self.jumped:
-            self.Player.up()
-            self.jumpVar += 1
-        elif self.jumpVar >= 11:
+        if self.jumpVar < 100 and not self.jumped:
+            self.Player.up(10)
+            self.jumpVar += 5
+        elif self.jumpVar >= 100:
             self.jumped = True
             if not self.Player.rectObj.colliderect(self.ground.groundRect):
-                self.Player.down()
+                self.Player.down(10)
             else:
                 self.jumped = False
                 self.jumpVar = 0
