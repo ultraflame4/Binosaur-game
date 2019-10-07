@@ -1,5 +1,5 @@
 # Binosaur-game
-You know the classic chrome offline dino game? yeah, dis is it but much more terrible and in python
+You know the classic chrome offline dinosaur game? yeah, dis is it but much more terrible and in python
 _____
 ## Changelog:
 ### Update[pre-dev0.2]: Second Update
