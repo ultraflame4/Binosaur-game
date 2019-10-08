@@ -8,27 +8,28 @@ class player:
         self.ground = ground
         self.jumpOrnot = False
         self.jumpV = False
-        self.Flytime = 0
+        self.FlytimeCounter = 0
+        self.FlytimeMax = 50
     def jump(self):
         y = self.Player.rectObj[1]
         key = pygame.key.get_pressed()
 
         if y >= 300 and not self.jumpV:
-            self.Player.up(15)
+            self.Player.up(12)
 
-        elif y <= 300 and self.Flytime < 20:
+        elif y <= 300 and self.FlytimeCounter < self.FlytimeMax:
             if key[pygame.K_SPACE]:
-                self.Flytime += 1
+                self.FlytimeCounter += 1
             else:
-                self.Flytime = 20
+                self.FlytimeCounter = self.FlytimeMax
 
-        elif not self.Player.rectObj.colliderect(self.ground.groundRect) and self.Flytime >= 20:
+        elif not self.Player.rectObj.colliderect(self.ground.groundRect) and self.FlytimeCounter >= self.FlytimeMax:
             self.jumpV = True
-            self.Player.down(10)
+            self.Player.down(6)
         else:
             self.jumpV = False
             self.jumpOrnot = False
-            self.Flytime = 0
+            self.FlytimeCounter = 0
     def jumpChecks(self):
         key = pygame.key.get_pressed()
         if key[pygame.K_SPACE] and not self.jumpOrnot:
