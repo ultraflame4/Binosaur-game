@@ -6,28 +6,29 @@ class player:
         self.surface = surface
         self.Player = Charactor.playerObj(self.surface, color)
         self.ground = ground
-        self.jumpVar = 0
-        self.jumped = False
         self.jumpOrnot = False
-        self.Leve = 0
+        self.jumpV = False
+        self.Flytime = 0
     def jump(self):
+        y = self.Player.rectObj[1]
         key = pygame.key.get_pressed()
-        if key[pygame.K_SPACE] and self.Leve < 10:
-            self.Leve += 5
-        else:
-            self.Leve = 0
 
-        if self.jumpVar < 100 and not self.jumped:
-            self.Player.up(10)
-            self.jumpVar += 5
-        elif self.jumpVar >= 100 and not self.Leve:
-            self.jumped = True
-            if not self.Player.rectObj.colliderect(self.ground.groundRect):
-                self.Player.down(10)
+        if y >= 300 and not self.jumpV:
+            self.Player.up(15)
+
+        elif y <= 300 and self.Flytime < 20:
+            if key[pygame.K_SPACE]:
+                self.Flytime += 1
             else:
-                self.jumped = False
-                self.jumpVar = 0
-                self.jumpOrnot = False
+                self.Flytime = 20
+
+        elif not self.Player.rectObj.colliderect(self.ground.groundRect) and self.Flytime >= 20:
+            self.jumpV = True
+            self.Player.down(10)
+        else:
+            self.jumpV = False
+            self.jumpOrnot = False
+            self.Flytime = 0
     def jumpChecks(self):
         key = pygame.key.get_pressed()
         if key[pygame.K_SPACE] and not self.jumpOrnot:
