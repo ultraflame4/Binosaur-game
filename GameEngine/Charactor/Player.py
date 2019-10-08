@@ -9,8 +9,8 @@ class player:
         self.jumpOrnot = False
         self.jumpV = False
         self.FlytimeCounter = 0
-        self.FlytimeMax = 20
-        self.MaxJumpHeight = 250
+        self.FlytimeMax = 25
+        self.MaxJumpHeight = 300
     def jump(self):
         y = self.Player.rectObj[1]
         key = pygame.key.get_pressed()
@@ -21,6 +21,8 @@ class player:
         elif y <= self.MaxJumpHeight and self.FlytimeCounter < self.FlytimeMax:
             if key[pygame.K_SPACE]:
                 self.FlytimeCounter += 1
+                if y > 275:
+                    self.Player.up(15)
             else:
                 self.FlytimeCounter = self.FlytimeMax
 
