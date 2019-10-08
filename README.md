@@ -9,6 +9,7 @@ _____
 - Added More Obstacles
 - Collisions are detected but still does nothing other than printing "cool" onto the console
 - added colors
+- UI is now darker
 ### Update[pre-dev0.2]: Second Update
 - Added player
 - Added Boundaries
