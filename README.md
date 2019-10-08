@@ -8,6 +8,7 @@ _____
 - Fixed Bugs
 - Added More Obstacles
 - Collisions are detected but still does nothing other than printing "cool" onto the console
+- added colors
 ### Update[pre-dev0.2]: Second Update
 - Added player
 - Added Boundaries
