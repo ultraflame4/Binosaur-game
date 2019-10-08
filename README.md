@@ -2,7 +2,7 @@
 Basically [chrome://dino](chrome://dino) recreated in Python 3 with pygame.
 _____
 ## Important:
-**[[LICENSE](../blob/master/LICENSE)]**
+**[[LICENSE](../master/LICENSE)]**
 ## Changelog:
 ### Update[pre-dev0.5]: Refinement
 - Refined jumping:
