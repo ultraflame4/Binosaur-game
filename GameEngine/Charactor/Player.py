@@ -28,7 +28,7 @@ class player:
 
         elif not self.Player.rectObj.colliderect(self.ground.groundRect) and self.FlytimeCounter >= self.FlytimeMax:
             self.jumpV = True
-            self.Player.down(8)
+            self.Player.down(10)
         else:
             self.jumpV = False
             self.jumpOrnot = False
