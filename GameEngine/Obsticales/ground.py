@@ -8,11 +8,11 @@ class groundObstacles:
         self.Scoreboard = scoreBoard
         self.createObj()
     def createObj(self):
-        self.groundObstacle0 = groundObj.Obsticales(self.surface, self.color)
-        self.groundObstacle1 = groundObj.Obsticales(self.surface, self.color, 1050)
-        self.groundObstacle2 = groundObj.Obsticales(self.surface, self.color, 1300)
-        self.groundObstacle3 = groundObj.Obsticales(self.surface, self.color, 1350)
-        self.groundObstacle4 = groundObj.Obsticales(self.surface, self.color, 1400)
+        self.groundObstacle0 = groundObj.Obsticales(self.surface, self.color, self.playerRect)
+        self.groundObstacle1 = groundObj.Obsticales(self.surface, self.color, self.playerRect, 1050)
+        self.groundObstacle2 = groundObj.Obsticales(self.surface, self.color, self.playerRect, 1300)
+        self.groundObstacle3 = groundObj.Obsticales(self.surface, self.color, self.playerRect, 1350)
+        self.groundObstacle4 = groundObj.Obsticales(self.surface, self.color, self.playerRect, 1400)
 
     def GROUP_PlayerCollisionCheck(self):
         self.PlayerCollisionCheck(self.groundObstacle0)
@@ -21,17 +21,24 @@ class groundObstacles:
         self.PlayerCollisionCheck(self.groundObstacle3)
         self.PlayerCollisionCheck(self.groundObstacle4)
 
-    def GROUP_PlayerCollisionSlowDown(self):
-        self.groundObstacle0.speed -= 1
-        self.groundObstacle1.speed -= 1
-        self.groundObstacle2.speed -= 1
-        self.groundObstacle3.speed -= 1
-        self.groundObstacle4.speed -= 1
+    def GROUP_PlayerCollisionSpeedChange(self, amt=1):
+        self.groundObstacle0.speed += amt
+        self.groundObstacle1.speed += amt
+        self.groundObstacle2.speed += amt
+        self.groundObstacle3.speed += amt
+        self.groundObstacle4.speed += amt
 
     def PlayerCollisionCheck(self, groundObstacleObj):
         if groundObstacleObj.rectObj.colliderect(self.playerRect):
             self.Scoreboard.playerCollisions.remove()
-            self.GROUP_PlayerCollisionSlowDown()
+            self.GROUP_PlayerCollisionSpeedChange(-2)
+
+        elif groundObstacleObj.jumpOver():
+            self.Scoreboard.playerCollisions.add(1)
+            if groundObstacleObj.speed < 10:
+                self.GROUP_PlayerCollisionSpeedChange(1)
+            else:
+                self.GROUP_PlayerCollisionSpeedChange(0.01)
 
     def draw(self):
         self.GROUP_PlayerCollisionCheck()

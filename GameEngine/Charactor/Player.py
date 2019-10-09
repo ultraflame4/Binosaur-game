@@ -9,7 +9,7 @@ class player:
         self.jumpOrnot = False
         self.jumpV = False
         self.FlytimeCounter = 0
-        self.FlytimeMax = 15
+        self.FlytimeMax = 20
         self.MaxJumpHeight = 300
     def jump(self):
         y = self.Player.rectObj[1]
