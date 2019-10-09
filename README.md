@@ -5,7 +5,7 @@ _____
 ### Legal Stuff:
 **[[LICENSE](../master/LICENSE)]**
 ### Update Legend:
-|Updates                                      |
+|Updates |                                    |
 |--------|------------------------------------|
 |pre     | Update To source code. No releases |
 |re      | Update with releases               |
