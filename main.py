@@ -12,7 +12,7 @@ run = True
 
 
 while run:
-    pygame.time.delay(10)
+    pygame.time.delay(160)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
               run = False
