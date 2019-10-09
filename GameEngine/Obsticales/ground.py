@@ -35,7 +35,7 @@ class groundObstacles:
 
         elif groundObstacleObj.jumpOver():
             self.Scoreboard.playerCollisions.add(1)
-            if groundObstacleObj.speed < 10:
+            if groundObstacleObj.speed < 5:
                 self.GROUP_PlayerCollisionSpeedChange(1)
             else:
                 self.GROUP_PlayerCollisionSpeedChange(0.01)
