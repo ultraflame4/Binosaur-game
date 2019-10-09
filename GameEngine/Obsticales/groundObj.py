@@ -13,8 +13,8 @@ class Obsticales:
         if self.detector.colliderect(self.playerRect):
             return True
     def move(self):
-        if self.speed < 1:
-            self.speed = 1
+        if self.speed < 2:
+            self.speed = 2
         elif self.speed > self.maxSpeed:
             self.speed = self.maxSpeed
         self.rectObj.move_ip((-1 * self.speed), 0)
