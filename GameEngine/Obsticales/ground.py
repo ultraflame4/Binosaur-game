@@ -31,7 +31,7 @@ class groundObstacles:
     def PlayerCollisionCheck(self, groundObstacleObj):
         if groundObstacleObj.rectObj.colliderect(self.playerRect):
             self.Scoreboard.playerCollisions.remove()
-            self.GROUP_PlayerCollisionSpeedChange(-1.5)
+            self.GROUP_PlayerCollisionSpeedChange(-5)
 
         elif groundObstacleObj.jumpOver():
             self.Scoreboard.playerCollisions.add(1)
