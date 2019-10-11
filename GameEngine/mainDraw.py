@@ -10,8 +10,8 @@ class mainGui:
         self.createObj()
     def createObj(self):
         self.ground = classes.ground(self.surface, (102, 51, 0))
-        self.Player = CharactorClass.player(self.surface, (50,50,50), self.ground)
         self.scoreBoard = scoreBoard.Scoreboard(self.surface)
+        self.Player = CharactorClass.player(self.surface, (50,50,50), self.ground, self.scoreBoard)
         self.GroundObsticals = ObsticalClasses.ground.groundObstacles(self.surface, (50, 100, 0), self.Player, self.scoreBoard)
     def update(self):
         self.surface.fill((0,0,0))

@@ -3,6 +3,7 @@ import pygame
 class groundObstacles:
     def __init__(self, surface, color, player, scoreBoard):
         self.playerRect = player.Player.rectObj
+        self.PlayerBullet = player.bullet
         self.surface = surface
         self.color = color
         self.Scoreboard = scoreBoard
@@ -30,20 +31,28 @@ class groundObstacles:
 
     def PlayerCollisionCheck(self, groundObstacleObj):
         if groundObstacleObj.rectObj.colliderect(self.playerRect):
-            self.Scoreboard.playerCollisions.remove()
-            self.GROUP_PlayerCollisionSpeedChange(-5)
+            self.Scoreboard.playerCollisions.remove(5)
+            self.GROUP_PlayerCollisionSpeedChange(-3)
 
         elif groundObstacleObj.jumpOver():
-            self.Scoreboard.playerCollisions.add(1)
+            self.Scoreboard.playerCollisions.add(10)
             if groundObstacleObj.speed < 5:
                 self.GROUP_PlayerCollisionSpeedChange(0.5)
             else:
                 self.GROUP_PlayerCollisionSpeedChange(0.01)
 
+        if groundObstacleObj.bulletCollisionCheck(self.PlayerBullet, self.Scoreboard):
+            if groundObstacleObj.speed < 5:
+                self.GROUP_PlayerCollisionSpeedChange(0.5)
+            else:
+                self.GROUP_PlayerCollisionSpeedChange(0.01)
+
+
+
     def draw(self):
         self.GROUP_PlayerCollisionCheck()
-        self.groundObstacle0.update()
-        self.groundObstacle1.update()
-        self.groundObstacle2.update()
-        self.groundObstacle3.update()
-        self.groundObstacle4.update()
+        self.groundObstacle0.update(self.PlayerBullet, self.Scoreboard)
+        self.groundObstacle1.update(self.PlayerBullet, self.Scoreboard)
+        self.groundObstacle2.update(self.PlayerBullet, self.Scoreboard)
+        self.groundObstacle3.update(self.PlayerBullet, self.Scoreboard)
+        self.groundObstacle4.update(self.PlayerBullet, self.Scoreboard)

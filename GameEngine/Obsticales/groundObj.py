@@ -24,7 +24,15 @@ class Obsticales:
         if self.rectObj[0] < -20:
             self.rectObj[0] = (1000 + (random.randint(1, 50) * 10))
 
-    def update(self):
+    def bulletCollisionCheck(self, bullet, scoreBoard):
+        if self.rectObj.colliderect(bullet.rect) and not self.playerRect.colliderect(bullet.rect) and bullet.isReady:
+            self.rectObj[0] = -21
+            bullet.isActive = False
+            scoreBoard.playerCollisions.remove(100)
+            bullet.isReady = False
+        pass
+    def update(self,bulletRect, score):
+        self.bulletCollisionCheck(bulletRect, score)
         self.move()
         self.BorderCheck()
         pygame.draw.rect(self.surface, self.theme, self.rectObj)
