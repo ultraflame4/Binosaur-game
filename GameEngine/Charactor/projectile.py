@@ -3,7 +3,7 @@ class bullet:
     def __init__(self, surface, player):
         self.surface = surface
         self.SpawningPoint = (player.rectObj[0], (player.rectObj[1] + 20))
-        self.rect = pygame.rect.Rect(self.SpawningPoint[0], self.SpawningPoint[1], 20, 10)
+        self.rect = pygame.rect.Rect(self.SpawningPoint[0], self.SpawningPoint[1], 10, 10)
         self.isActive = False
         self.isReady = True
     def borderCheck(self):
@@ -20,16 +20,22 @@ class bullet:
                 elif self.rect[1] < self.SpawningPoint[1]:
                     self.rect[1] += 5
             if not self.rect[0] == self.SpawningPoint[0]:
-                self.rect[0] -= 10
+                if self.rect[0] > self.SpawningPoint[0]:
+                    self.rect[0] -= 5
+                elif self.rect[0] < self.SpawningPoint[0]:
+                    self.rect[0] += 5
 
         if player.rectObj.colliderect(self.rect):
             self.isReady = True
-            self.rect[0], self.rect[1] = player.rectObj.center
-            print(str(player.rectObj.center))
+            if not self.rect[1] == self.SpawningPoint[1]:
+                if self.rect[1] > self.SpawningPoint[1]:
+                    self.rect[1] -= 1
+                elif self.rect[1] < self.SpawningPoint[1]:
+                    self.rect[1] += 1
         else:
             self.isReady = False
 
-        print(self.rect[1])
+
     def update(self):
         self.borderCheck()
         if self.isActive:
