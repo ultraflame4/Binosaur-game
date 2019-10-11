@@ -10,7 +10,13 @@ _____
 |pre     | Update To source code. No releases |
 |re      | Update with releases               |
 |-[stage]| Stage of Program                   |
+
 ## Changelog:
+### Update[pre-dev0.9]: PEW PEW PEW
+- You can now throw a boomerang if you have score of 10 or more
+- Boomerang Features:
+      Destroys 1 Obstacle
+
 ### Update[pre-dev0.7]: Score
 - Whenever you hit an obstacle, the game slows down and your score decrease. When you avoid it, the game speeds up and your score increase.
 
