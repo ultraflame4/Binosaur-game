@@ -41,14 +41,6 @@ class groundObstacles:
             else:
                 self.GROUP_PlayerCollisionSpeedChange(0.01)
 
-        if groundObstacleObj.bulletCollisionCheck(self.PlayerBullet, self.Scoreboard):
-            if groundObstacleObj.speed < 5:
-                self.GROUP_PlayerCollisionSpeedChange(0.5)
-            else:
-                self.GROUP_PlayerCollisionSpeedChange(0.01)
-
-
-
     def draw(self):
         self.GROUP_PlayerCollisionCheck()
         self.groundObstacle0.update(self.PlayerBullet, self.Scoreboard)
