@@ -52,10 +52,10 @@ class player:
             self.jump()
 
     def shootChecks(self):
-        if self.key[pygame.K_e] and self.Score.collisions > 1 and not self.bullet.isActive and self.bullet.isReady:
+        if self.key[pygame.K_e] and self.Score.collisions > 10 and not self.bullet.isActive and self.bullet.isReady:
             self.shoot()
             self.bullet.rect.move_ip(6, 0)
-            self.Score.collisions -= 1
+            self.Score.collisions -= 10
 
     def checks(self):
         self.key = pygame.key.get_pressed()
