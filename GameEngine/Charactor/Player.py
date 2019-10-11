@@ -54,6 +54,7 @@ class player:
     def shootChecks(self):
         if self.key[pygame.K_e] and self.Score.collisions > 1 and not self.bullet.isActive and self.bullet.isReady:
             self.shoot()
+            self.bullet.rect.move_ip(6, 0)
             self.Score.collisions -= 1
 
     def checks(self):

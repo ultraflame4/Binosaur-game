@@ -36,12 +36,27 @@ class groundObstacles:
 
         elif groundObstacleObj.jumpOver():
             self.Scoreboard.playerCollisions.add(10)
-            if groundObstacleObj.speed < 5:
-                self.GROUP_PlayerCollisionSpeedChange(0.5)
-            else:
-                self.GROUP_PlayerCollisionSpeedChange(0.01)
 
+
+    def GROUP_bulletCollisioncheck(self):
+        self.bulletCollisionCheck(self.groundObstacle0)
+        self.bulletCollisionCheck(self.groundObstacle1)
+        self.bulletCollisionCheck(self.groundObstacle2)
+        self.bulletCollisionCheck(self.groundObstacle3)
+        self.bulletCollisionCheck(self.groundObstacle4)
+
+    def bulletCollisionCheck(self, obstacle):
+        if obstacle.rectObj.colliderect(self.PlayerBullet.rect):
+            print(str(self.PlayerBullet.isReady))
+            self.PlayerBullet.isActive = False
+            if self.PlayerBullet.isReady:
+                obstacle.rectObj[0] = -12
+            self.PlayerBullet.isReady = False
+    def gameSpeedUpdate(self):
+        self.GROUP_PlayerCollisionSpeedChange(0.003)
     def draw(self):
+        self.gameSpeedUpdate()
+        self.GROUP_bulletCollisioncheck()
         self.GROUP_PlayerCollisionCheck()
         self.groundObstacle0.update(self.PlayerBullet, self.Scoreboard)
         self.groundObstacle1.update(self.PlayerBullet, self.Scoreboard)
