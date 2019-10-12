@@ -13,7 +13,7 @@ class player:
         self.MaxJumpHeight = 300
         self.key = pygame.key.get_pressed()
         self.bullet = projectile.bullet(self.surface, self.Player)
-        self.Score = scoreboard.playerCollisions
+        self.scoreboard = scoreboard
 
     def shoot(self):
         self.bullet.isActive = True
@@ -44,18 +44,19 @@ class player:
             self.FlytimeCounter = 0
 
     def jumpChecks(self):
-        if self.key[pygame.K_SPACE] and not self.jumpOrnot:
+        if self.key[pygame.K_SPACE] and not self.jumpOrnot and self.scoreboard.Energy.value > 10:
             self.jumpOrnot = True
+            self.scoreboard.Energy.holdValue -= 2
 
         if self.jumpOrnot:
 
             self.jump()
 
     def shootChecks(self):
-        if self.key[pygame.K_e] and self.Score.collisions > 10 and not self.bullet.isActive and self.bullet.isReady:
+        if self.key[pygame.K_e] and self.scoreboard.Energy.value > 10 and not self.bullet.isActive and self.bullet.isReady:
             self.shoot()
             self.bullet.rect.move_ip(6, 0)
-            self.Score.collisions -= 10
+            self.scoreboard.Energy.holdValue -= 5
 
     def checks(self):
         self.key = pygame.key.get_pressed()

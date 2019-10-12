@@ -31,14 +31,18 @@ class groundObstacles:
 
     def PlayerCollisionCheck(self, groundObstacleObj):
         if groundObstacleObj.rectObj.colliderect(self.playerRect):
-            if self.Scoreboard.playerCollisions.collisions > 0:
-                self.Scoreboard.playerCollisions.remove(50)
+            if self.Scoreboard.Energy.value > 0:
+                self.Scoreboard.Energy.remove(50)
+
+            if self.Scoreboard.Score.value > 0:
+                self.Scoreboard.Score.remove(10)
             else:
-                self.Scoreboard.playerCollisions.collisions = 0
-            self.GROUP_PlayerCollisionSpeedChange(-3)
+                self.Scoreboard.Score.value = 0
+
+            self.GROUP_PlayerCollisionSpeedChange(-1)
 
         elif groundObstacleObj.jumpOver():
-            self.Scoreboard.playerCollisions.add(5)
+            self.Scoreboard.Score.add(5)
 
 
     def GROUP_bulletCollisioncheck(self):

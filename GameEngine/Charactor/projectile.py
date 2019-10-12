@@ -16,12 +16,12 @@ class bullet:
             self.SpawningPoint = ((player.rectObj[0] + 5), (player.rectObj[1] + 20))
             if not self.rect[1] == self.SpawningPoint[1]:
                 if self.rect[1] > self.SpawningPoint[1]:
-                    self.rect[1] -= 5
+                    self.rect[1] -= 6
                 elif self.rect[1] < self.SpawningPoint[1]:
-                    self.rect[1] += 5
+                    self.rect[1] += 6
             if not self.rect[0] == self.SpawningPoint[0]:
                 if self.rect[0] > self.SpawningPoint[0]:
-                    self.rect[0] -= 5
+                    self.rect[0] -= 10
                 elif self.rect[0] < self.SpawningPoint[0]:
                     self.rect[0] += 5
 
