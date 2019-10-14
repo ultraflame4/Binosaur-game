@@ -28,7 +28,7 @@ class PlayerEnergy:
         self.value -= 1
 
     def update(self):
-        self.holdValue += 0.1
+        self.holdValue += 0.07
         self.value = int(self.holdValue)
         Energy = self.font.render(("Energy: " + str(self.value)), True, (255,255,0))
         self.surface.blit(Energy, (0, 20))
