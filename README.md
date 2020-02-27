@@ -2,7 +2,9 @@
 Basically [chrome://dino](chrome://dino) recreated in Python 3 with pygame.... But with extra stuff
 _____
 # Important:
-##
+## ANNOUCEMENT:
+~~bruh no one evens look at this project. why am i doing this~~
+**THE PROJECT WILL BE REWRITTEN SOON**
 
 ### Legal Stuff:
 **[[LICENSE](../master/LICENSE)]**
