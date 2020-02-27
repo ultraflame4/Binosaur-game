@@ -4,7 +4,8 @@ _____
 # Important:
 ## ANNOUCEMENT:
 ~~bruh no one evens look at this project. why am i doing this~~
-**THE PROJECT WILL BE REWRITTEN SOON**
+### REWRITE!!!!!  
+**THIS PROJECT'S ENTIRE CODE WILL BE REWRITTEN FOR REASONS SOON**
 
 ### Legal Stuff:
 **[[LICENSE](../master/LICENSE)]**
