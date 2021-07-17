@@ -60,7 +60,7 @@ class groundObstacles:
                 obstacle.rectObj[0] = -12
             self.PlayerBullet.isReady = False
     def gameSpeedUpdate(self):
-        self.GROUP_PlayerCollisionSpeedChange(0.003)
+        self.GROUP_PlayerCollisionSpeedChange(.005)
     def draw(self):
         self.gameSpeedUpdate()
         self.GROUP_bulletCollisioncheck()
